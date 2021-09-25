@@ -1,4 +1,4 @@
-"""
+
 #10808번
 #문자열 s 입력
 s = list(map(str, input()))
@@ -143,15 +143,9 @@ print(result)
 
 
 
-"""
+
 
 #-----------------------------------------------------------------------
-
-
-
-
-
-
 #1475번
 #방 번호 입력
 n =input()
@@ -165,7 +159,7 @@ array = [0 for i in range(10)]
 #방 번호 숫자 개수 만큼 for문 반복  
 for i in range(len(n)):
 
-    #숫자 9는 배열 6번에 +1
+    #숫자 9는 array[6]에 +1
     if n[i] == '9':
         array[6]+=1
 
@@ -173,17 +167,22 @@ for i in range(len(n)):
     else:
         array[num.index(n[i])]+=1
 
+#array[6]의 인덱스 값을 2로 나눴을 때 나머지가 0이면,
+#나눈 값의 몫
 if array[6]  % 2 == 0:
-        array[6] = array[6] // 2
-        array[9] = array[6] // 2
+    array[6] = array[6] // 2
+    #array[9] = array[6] // 2
 
+
+#array[6]의 인덱스 값을 2로 나눴을 때 나머지가 1이면,
+#나눈 값의 몫에 +1
 else:
     array[6] = (array[6] // 2) + 1
-    array[9] = (array[6] // 2) + 1
+    #array[9] = (array[6] // 2) + 1
 
 
 result = 0
-
+#array에서 가장 큰 값을 출력
 for j in array:
     if j > result:
         result = j
@@ -194,36 +193,44 @@ print(result)
 
 
 
-"""
 #---------------------------------------------------------------------------
-#!!!!!!
+
+
+
+
+
+
 #1919번
+#영어 단어 입력
 a = list(input())
 b = list(input())
 
-result = 0
 
-intersection = set(a)&set(b)
-symmertirc_difference= set(a)^set(b)
-for c in symmetric_difference:
-    set += a.count(c)+b.count(c)
 
-for c in intersection:
-    result += abs(a.count(c)-b.count(c))
 
-print(result)
+
+
 
 
 
 #--------------------------------------------------------------------------
 #3273번
+#수열의 크기 입력
 n = int(input())
+
+#수열에 포함되는 수 입력
 num = list(map(int, input().split()))
-num.sort()#오름차순정렬
+
+#num리스트 오름차순정렬
+num.sort()
+
+#x값 입력
 x = int(input())
 
 count = 0
 
+#두 개의 포인터를 사용
+#이중 for문을 이용하면 시간복잡도가 O(n^2)이여서 시간이 초과됨
 left, right = 0, n-1
 
 while left != right:
@@ -233,13 +240,14 @@ while left != right:
 
     elif num[left]+num[right]>x:
         right-=1
+
+    # num[left]+num[right]< x   
     else:
         left+=1
+
+
 print(count)
 
-
-
-"""
 
 
 
