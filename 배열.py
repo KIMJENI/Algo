@@ -167,15 +167,11 @@ for i in range(len(n)):
     else:
         array[num.index(n[i])]+=1
 
-#array[6]의 인덱스 값을 2로 나눴을 때 나머지가 0이면,
-#나눈 값의 몫
+#정확한 array[6]값 구하기
 if array[6]  % 2 == 0:
     array[6] = array[6] // 2
     #array[9] = array[6] // 2
 
-
-#array[6]의 인덱스 값을 2로 나눴을 때 나머지가 1이면,
-#나눈 값의 몫에 +1
 else:
     array[6] = (array[6] // 2) + 1
     #array[9] = (array[6] // 2) + 1
@@ -201,10 +197,28 @@ print(result)
 
 
 #1919번
-#영어 단어 입력
-a = list(input())
-b = list(input())
+#배열 초기화(소문자 개수 만큼)
+arrx=[0]*26
+arry=[0]*26
 
+#단어 입력
+x=input()
+y=input()
+
+count = 0
+
+#x,y문자열의 알파벳 개수 세기
+for i in x:
+    arrx[ord(i)-97]+=1
+for i in y:
+    arry[ord(i)-97]+=1
+
+#제거해야 하는 문자개수 세기
+for i in range(26):
+    if arrx[i] or arry[i]:
+        count+=abs(arrx[i]-arry[i])
+
+print(count)
 
 
 
