@@ -1,3 +1,4 @@
+"""
 #10808번
 #문자열 s 입력
 s = list(map(str, input()))
@@ -65,17 +66,24 @@ for i in range(len(data)):
     print(count)
 
 
+
+
 #-----------------------------------------------------------------------
 #11328번
+#테스트 케이스수 입력
 n = int(input())
- 
+
+#두개의 문자열을 공백으로 구분하여 입력
 for i in range(n):
     a, b = input().split()
+    #정렬을 수행 후 join을 사용해서 문자형으로 반환
     a = ''.join(sorted(a))
     b = ''.join(sorted(b))
- 
 
+ 
+    #문자길이 만큼 for문 반복
     for i in range(len(a)):
+        #문자열이 다르면 False 맞으면 True
         if a[i] != b[i]:
             flag = False
             break
@@ -89,21 +97,35 @@ for i in range(n):
         
 
 
+
+
+
 #-----------------------------------------------------------------------
 #13300번
+#학생수, 최대 인원 수 입력
 n, k = list(map(int,input().split()))
 
+#여학생, 남학생 배열 초기화
 w = [0]*1000
 m = [0]*1000
 
+#학생 수 만큼 for문 반복
 for i in range(n):
+    #성별, 학년 입력
     s, y = list(map(int,input().split()))
+
+    #여학생이면 여학생 배열 y번칸에 +1
     if s==0:
         w[y] += 1
+
+
+    #남학생이면 남학생 배열 y번칸에 +1
     else:
         m[y] +=1
 
+#6번 반복(1~6학년)
 for i in range(1, 7):
+    #학년별로 방의 개수 구하기
     if(w[i]%k==0):
         w[i] = w[i]//k
     else:
@@ -120,17 +142,36 @@ print(result)
 
 
 
+
+"""
+
 #-----------------------------------------------------------------------
+
+
+
+
+
+
 #1475번
+#방 번호 입력
 n =input()
 
+#num리스트
 num = list('0123456789')
+
+#값이 0인 배열 초기화
 array = [0 for i in range(10)]
 
+#방 번호 숫자 개수 만큼 for문 반복  
 for i in range(len(n)):
+
+    #숫자 9는 배열 6번에 +1
     if n[i] == '9':
         array[6]+=1
-    array[num.index(n[i])]+=1
+
+        
+    else:
+        array[num.index(n[i])]+=1
 
 if array[6]  % 2 == 0:
         array[6] = array[6] // 2
@@ -150,6 +191,10 @@ print(result)
 
 
 
+
+
+
+"""
 #---------------------------------------------------------------------------
 #!!!!!!
 #1919번
@@ -194,7 +239,7 @@ print(count)
 
 
 
-
+"""
 
 
 
